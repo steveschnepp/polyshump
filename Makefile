@@ -8,10 +8,10 @@ CFLAGS+=$(shell pkg-config --cflags SDL2_image )
 LDLIBS+=$(shell pkg-config --libs SDL2_image )
 CFLAGS+=$(shell pkg-config --cflags SDL2_ttf)
 LDLIBS+=$(shell pkg-config --libs SDL2_ttf)
-endif
-
 CFLAGS+=$(shell pkg-config --cflags SDL2_mixer)
 LDLIBS+=$(shell pkg-config --libs SDL2_mixer)
+
+endif
 
 ifeq ($(EMSCRIPTEN), 1)
 CFLAGS=
