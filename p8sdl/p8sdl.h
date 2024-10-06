@@ -18,6 +18,7 @@ extern int quit;
 extern long frame;
 
 extern char *APP_TITLE();
+extern const SDL_Color VGA_COLORS[];
 
 enum draw_keepscreen {
 	UDSL_KEEPSCREEN = 0,
