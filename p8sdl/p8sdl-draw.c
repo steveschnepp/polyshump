@@ -24,11 +24,11 @@ void circ(float x, float y, float r, int color) {
 	SDL_FPoint points[NUM_CIRCLE_EDGES * 2];
 
 	for (int i = 0; i < NUM_CIRCLE_EDGES; i ++) {
-		points[i * 2].x = x + cosf(M_PI / NUM_CIRCLE_EDGES * i);
-		points[i * 2].y = y + sinf(M_PI / NUM_CIRCLE_EDGES * i);
+		points[i * 2].x = x + r * cosf(2 * M_PI / NUM_CIRCLE_EDGES * i);
+		points[i * 2].y = y + r * sinf(2 * M_PI / NUM_CIRCLE_EDGES * i);
 
-		points[i * 2 + 1].x = x + cosf(M_PI / NUM_CIRCLE_EDGES * (i+1));
-		points[i * 2 + 1].y = y + sinf(M_PI / NUM_CIRCLE_EDGES * (i+1));
+		points[i * 2 + 1].x = x + r * cosf(2 * M_PI / NUM_CIRCLE_EDGES * (i+1));
+		points[i * 2 + 1].y = y + r * sinf(2 * M_PI / NUM_CIRCLE_EDGES * (i+1));
 	}
 
 	SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
@@ -46,12 +46,12 @@ void circfill(float x, float y, float r, int color) {
 		vertices[i * 3].position = o;
 		vertices[i * 3].color = c;
 
-		vertices[i * 3 + 1].position.x = x + cosf(M_PI / NUM_CIRCLE_EDGES * i);
-		vertices[i * 3 + 1].position.y = y + sinf(M_PI / NUM_CIRCLE_EDGES * i);
+		vertices[i * 3 + 1].position.x = x + r * cosf(2 * M_PI / NUM_CIRCLE_EDGES * i);
+		vertices[i * 3 + 1].position.y = y + r * sinf(2 * M_PI / NUM_CIRCLE_EDGES * i);
 		vertices[i * 3 + 1].color = c;
 
-		vertices[i * 3 + 2].position.x = x + cosf(M_PI / NUM_CIRCLE_EDGES * (i+1));
-		vertices[i * 3 + 2].position.y = y + sinf(M_PI / NUM_CIRCLE_EDGES * (i+1));
+		vertices[i * 3 + 2].position.x = x + r * cosf(2 * M_PI / NUM_CIRCLE_EDGES * (i+1));
+		vertices[i * 3 + 2].position.y = y + r * sinf(2 * M_PI / NUM_CIRCLE_EDGES * (i+1));
 		vertices[i * 3 + 2].color = c;
 	}
 
