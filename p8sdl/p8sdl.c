@@ -236,7 +236,7 @@ int main(int argc, char *argv[])
 	}
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_ADD);
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_NONE); // PICO8 is replacing colors
 	SDL_RenderClear(renderer);
 	SDL_RenderPresent(renderer);
 
