@@ -1,4 +1,4 @@
-#include "usdl.h"
+#include "p8sdl.h"
 
 float randf(float max) {
     float r = rand();

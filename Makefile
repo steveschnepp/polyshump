@@ -21,7 +21,7 @@ CC=emcc -v -s USE_SDL=2
 OPTIM_LEVEL=0
 endif
 
-SRCS=$(wildcard *.c usdl/*.c)
+SRCS=$(wildcard *.c p8sdl/*.c)
 OBJS=$(SRCS:.c=.o)
 DEPS=$(SRCS:.c=.d)
 BINS=$(lastword $(subst /, ,$(dir $(realpath $(lastword $(MAKEFILE_LIST))))))
@@ -43,18 +43,12 @@ CFLAGS+=-O$(OPTIM_LEVEL)
 LDLIBS+=-lm
 CFLAGS+=-DUSDL_APPNAME=$(BINS)
 CFLAGS+=-Wall -Werror -pedantic
-CFLAGS+=-Iusdl
+CFLAGS+=-Ip8sdl
 
 ifeq ($(GL), 1)
 CFLAGS+=-DOPENGL_ENABLED=1
 CFLAGS+=$(shell pkg-config --cflags gl glu)
 LDLIBS+=$(shell pkg-config --libs gl glu)
-endif
-
-ifeq ($(SCREENSHOTS), 1)
-CFLAGS+=-DSCREENSHOTS_ENABLED=1
-CFLAGS+=$(shell pkg-config --cflags SDL2_image)
-LDLIBS+=$(shell pkg-config --libs SDL2_image)
 endif
 
 ifeq ($(ANTIALIAS), 1)
@@ -71,13 +65,13 @@ screenshots:
 
 clean: $(SUBDIRS)
 	rm -f $(OBJS) $(EXES)
-	rm -Rf screenshots
 
 realclean: clean $(SUBDIRS)
 	rm -f $(DEPS)
 	rm -f *~ */*~
+	rm -Rf screenshots
 
 indent:
 	indent -v -slc -l135 -linux *.c */*.h */*.c
 
-.PHONY: all clean indent
+.PHONY: all clean indent screenshots

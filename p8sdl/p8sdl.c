@@ -1,4 +1,4 @@
-#include "usdl.h"
+#include "p8sdl.h"
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
@@ -138,6 +138,9 @@ void main_loop()
 			switch (e.key.keysym.sym) {
 			case SDLK_ESCAPE:
 				quit = 1;
+				return;
+			case SDLK_PRINTSCREEN:
+				screenshot();
 				return;
 			case 'f':
 				fullScreen = !fullScreen;

@@ -1,4 +1,4 @@
-#include "usdl.h"
+#include "p8sdl.h"
 
 #define MAX_SPRITES 256
 SDL_Texture *sprites[MAX_SPRITES];
