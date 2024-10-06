@@ -15,5 +15,5 @@ void screenshot()
 	SDL_FreeSurface(screenshot);
 	filenumber++;
 
-	SDL_Log("screenshot in %s (%dx%d)", filename, w, h); 
+	SDL_Log("screenshot in %s (%dx%d)", filename, w, h);
 }
