@@ -20,6 +20,10 @@ extern long frame;
 extern char *APP_TITLE();
 extern const SDL_Color VGA_COLORS[];
 
+#define NUM_CIRCLE_EDGES 128
+extern const float COSF[NUM_CIRCLE_EDGES];
+extern const float SINF[NUM_CIRCLE_EDGES];
+
 enum draw_keepscreen {
 	UDSL_KEEPSCREEN = 0,
 	UDSL_CLEARSCREEN = 1,
