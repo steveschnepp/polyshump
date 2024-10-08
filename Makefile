@@ -1,6 +1,8 @@
 CFLAGS=$(shell pkg-config --cflags sdl2 )
 LDLIBS=$(shell pkg-config --libs sdl2 )
 
+SDLEXTRA ?= 1
+
 ifeq ($(SDLEXTRA), 1)
 CFLAGS+=$(shell pkg-config --cflags SDL2_net )
 LDLIBS+=$(shell pkg-config --libs SDL2_net )
@@ -10,7 +12,6 @@ CFLAGS+=$(shell pkg-config --cflags SDL2_ttf)
 LDLIBS+=$(shell pkg-config --libs SDL2_ttf)
 CFLAGS+=$(shell pkg-config --cflags SDL2_mixer)
 LDLIBS+=$(shell pkg-config --libs SDL2_mixer)
-
 endif
 
 ifeq ($(EMSCRIPTEN), 1)

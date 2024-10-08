@@ -1,5 +1,7 @@
 #include "p8sdl.h"
 
+#include <stdio.h>
+
 float randf(float max)
 {
 	float r = rand();
@@ -21,8 +23,13 @@ void draw()
 			rectfill(randf(SCREEN_WIDTH), randf(SCREEN_HEIGHT), randf(SCREEN_WIDTH), randf(SCREEN_HEIGHT), i);
 		}
 
-	for (int i = 0; i < 20000; i++) {
+	for (int i = 0; i < 20; i++) {
 		circ(randf(SCREEN_WIDTH), randf(SCREEN_HEIGHT), randf(64), i);
 		circfill(randf(SCREEN_WIDTH), randf(SCREEN_HEIGHT), randf(64), i);
 	}
+
+	char msg[256] = { 0 };
+
+	sprintf(msg, "frame %012ld", frame);
+	print(msg, 0, frame % 128, 15);
 }
