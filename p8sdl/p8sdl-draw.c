@@ -18,11 +18,13 @@ void rectfill(float x1, float y1, float x2, float y2, int color)
 	SDL_RenderFillRectF(renderer, &rec);
 }
 
+static
 float _cosf(int i)
 {
 	return COSF[i % NUM_CIRCLE_EDGES];
 }
 
+static
 float _sinf(int i)
 {
 	return SINF[i % NUM_CIRCLE_EDGES];
@@ -43,7 +45,8 @@ void circ_line(float x, float y, float r, int color)
 	SDL_RenderDrawLinesF(renderer, points, NUM_CIRCLE_EDGES);
 }
 
-float absf(float f)
+static
+float _absf(float f)
 {
 	if (f < 0) return -f;
 	return f;
@@ -56,8 +59,8 @@ void circ_strip(float x, float y, float r, int color)
 	SDL_Vertex vertices[(NUM_CIRCLE_EDGES + 1) * 6];
 
 	float line_width = .5;
-	float r_outer = absf(r + line_width);
-	float r_inner = absf(r - line_width);
+	float r_outer = _absf(r + line_width);
+	float r_inner = _absf(r - line_width);
 	for (int i = 0; i < NUM_CIRCLE_EDGES; i++) {
 		// First triangle of the strip
 		vertices[i * 6].position.x = x + r_inner * _cosf(i);
